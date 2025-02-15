@@ -1,0 +1,291 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --space-black: #0a0e17;
+    --star-white: #ffffff;
+    --neon-blue: #00f3ff;
+    --deep-purple: #6c5ce7;
+}
+
+.nav-container {
+    background: linear-gradient(45deg, var(--space-black), #00081d);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--star-white);
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    position: relative;
+    background: linear-gradient(45deg, var(--neon-blue), var(--deep-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--star-white);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--neon-blue);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--neon-blue);
+}
+
+@keyframes shooting-star {
+    0% {
+        transform: translateX(-100%) translateY(-50%);
+    }
+    100% {
+        transform: translateX(200%) translateY(100%);
+    }
+}
+
+.nav-container::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 0;
+    width: 20px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--neon-blue));
+    animation: shooting-star 3s infinite linear;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-container {
+        padding: 1rem;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+
+:root {
+    --space-black: #000000;
+    --cosmic-blue: #00f3ff;
+    --star-white: #ffffff;
+    --card-bg: rgba(0, 0, 0, 0.7);
+    --space-gradient: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', system-ui;
+    color: white;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+.space-background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: var(--space-gradient);
+    z-index: -2;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: twinkle 200s linear infinite;
+}
+
+.twinkling {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    animation: stars 100s linear infinite;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.2; }
+    100% { opacity: 0.8; }
+}
+
+@keyframes stars {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.cosmic-title {
+    text-align: center;
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 2rem 0;
+    text-shadow: 0 0 20px var(--cosmic-blue);
+    position: relative;
+}
+
+.celestial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.celestial-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.celestial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 30px rgba(0, 243, 255, 0.3);
+    z-index: 1;
+}
+
+.celestial-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.celestial-card:hover .celestial-img {
+    transform: scale(1.05);
+}
+
+.celestial-info {
+    padding: 1.5rem;
+}
+
+.celestial-info h2 {
+    margin: 0 0 1rem 0;
+    color: var(--cosmic-blue);
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+
+.celestial-data {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.celestial-data p {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.celestial-data span {
+    color: #888;
+    margin-right: 1rem;
+    font-weight: 300;
+}
+
+/* Star pattern overlay */
+.stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(2px 2px at 20% 30%, var(--star-white) 50%, transparent),
+        radial-gradient(2px 2px at 80% 70%, var(--star-white) 50%, transparent),
+        radial-gradient(2px 2px at 50% 20%, var(--star-white) 50%, transparent);
+    background-size: 200px 200px;
+}
+
+@media (max-width: 768px) {
+    .celestial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cosmic-title {
+        font-size: 2rem;
+    }
+    
+    .celestial-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .celestial-info {
+        padding: 1rem;
+    }
+    
+    .celestial-info h2 {
+        font-size: 1.4rem;
+    }
+}
+
+
